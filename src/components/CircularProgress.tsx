@@ -37,7 +37,5 @@ function CircularProgressWithLabel(
 }
 
 export default function CircularWithValueLabel() {
-  const [progress, setProgress] = React.useState(26);
-
-  return <CircularProgressWithLabel value={progress} />;
+  return <CircularProgressWithLabel value={26} />;
 }
