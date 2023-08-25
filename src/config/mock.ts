@@ -3,5 +3,5 @@ export const user_data = {
   surname: "Valente",
   weigth: 62,
   heigth: 180,
-  IMC: 18.5,
+  IMC: 19.1,
 };

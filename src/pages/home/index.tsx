@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import MainLayout from "../../layouts/MainLayout";
 import "./home.css";
+import CircularWithValueLabel from "../../components/CircularProgress";
 
 const dias = [
   "Domingo",
@@ -39,7 +40,7 @@ export default function Home() {
           <img src="/imc.png" className="rounded" width={50} />
           <div>
             <h4>IMC</h4>
-            <span>18.5 Kg/m²</span>
+            <span>19.1 Kg/m²</span>
           </div>
         </div>
       </div>

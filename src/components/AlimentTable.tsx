@@ -5,12 +5,12 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
+import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 
 function createData(
   name: string,
-  calories: number,
+  calories: number | React.ReactNode,
   fat: number,
   carbs: number,
   protein: number,
@@ -26,20 +26,23 @@ const rows = [
   createData("Patê de frango", 237, 9.0, 37, 4.3, 3, "uni", <DeleteIcon />),
   createData(
     "Suquin de acerola",
-    262,
+    160,
     16.0,
     24,
     6.0,
     300,
     "ml",
-    <DeleteIcon />
+    <>
+      <DeleteIcon />
+      <EditIcon />
+    </>
   ),
   createData("Pão de forma", 305, 3.7, 67, 4.3, 2, "uni", <DeleteIcon />),
 ];
 
 export default function AlimentTable() {
   return (
-    <TableContainer component={Paper}>
+    <TableContainer>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
@@ -67,7 +70,7 @@ export default function AlimentTable() {
               <TableCell align="center">{row.protein}</TableCell>
               <TableCell align="center">{row.quantity + row.unity}</TableCell>
 
-              <TableCell align="center" className="&:last-child:cursor-pointer">
+              <TableCell align="left" className="&:last-child:cursor-pointer">
                 {row.actions}
               </TableCell>
             </TableRow>
