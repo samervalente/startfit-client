@@ -22,8 +22,26 @@ function createData(
 }
 
 const rows = [
-  createData("Ovo frito", 200, 6.0, 24, 4.0, 1, "uni", <DeleteIcon />),
-  createData("Patê de frango", 237, 9.0, 37, 4.3, 3, "uni", <DeleteIcon />),
+  createData(
+    "Ovo frito",
+    200,
+    6.0,
+    24,
+    4.0,
+    1,
+    "uni",
+    <DeleteIcon className="cursor-pointer" />
+  ),
+  createData(
+    "Patê de frango",
+    237,
+    9.0,
+    37,
+    4.3,
+    3,
+    "uni",
+    <DeleteIcon className="cursor-pointer" />
+  ),
   createData(
     "Suquin de acerola",
     160,
@@ -33,11 +51,20 @@ const rows = [
     300,
     "ml",
     <>
-      <DeleteIcon />
-      <EditIcon />
+      <EditIcon className="cursor-pointer" />
+      <DeleteIcon className="cursor-pointer" />
     </>
   ),
-  createData("Pão de forma", 305, 3.7, 67, 4.3, 2, "uni", <DeleteIcon />),
+  createData(
+    "Pão de forma",
+    305,
+    3.7,
+    67,
+    4.3,
+    2,
+    "uni",
+    <DeleteIcon className="cursor-pointer" />
+  ),
 ];
 
 export default function AlimentTable() {
@@ -70,9 +97,7 @@ export default function AlimentTable() {
               <TableCell align="center">{row.protein}</TableCell>
               <TableCell align="center">{row.quantity + row.unity}</TableCell>
 
-              <TableCell align="left" className="&:last-child:cursor-pointer">
-                {row.actions}
-              </TableCell>
+              <TableCell align="right">{row.actions}</TableCell>
             </TableRow>
           ))}
         </TableBody>
