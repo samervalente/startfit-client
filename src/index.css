@@ -18,11 +18,12 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
   text-decoration: none;
 }
-a:hover {
-  color: #535bf2;
+
+a.active {
+  font-weight: bold;
+  color: rgb(255, 162, 0);
 }
 
 body {
@@ -30,4 +31,8 @@ body {
   display: flex;
   place-items: center;
   font-family: "Popspins", sans-serif;
+}
+
+.main-shadow {
+  box-shadow: 1px 1px 2px 1px rgba(104, 104, 104, 0.25);
 }
