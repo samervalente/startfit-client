@@ -1,5 +1,4 @@
 import { BellSimple, CaretDown, Envelope, Moon } from "@phosphor-icons/react";
-import branding from "../config/branding";
 
 export default function Topbar() {
   return (
