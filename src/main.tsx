@@ -4,6 +4,7 @@ import "./index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Home from "./pages/home/index.tsx";
 import WeekDay from "./pages/weekday/index.tsx";
+import Meal from "./pages/meal/meal.tsx";
 
 const router = createBrowserRouter([
   {
@@ -11,8 +12,12 @@ const router = createBrowserRouter([
     element: <Home />,
   },
   {
-    path: "/cronograma/:id",
+    path: "/cronograma/:weekday",
     element: <WeekDay />,
+  },
+  {
+    path: "/cronograma/:weekday/:meal",
+    element: <Meal />,
   },
 ]);
 

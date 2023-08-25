@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import MainLayout from "../../layouts/MainLayout";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 import { Link } from "react-router-dom";
@@ -11,25 +11,21 @@ import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { useState } from "react";
 
-//accordion
-import Accordion from "@mui/material/Accordion";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import Typography from "@mui/material/Typography";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import AsynchronousAutoComplete from "../../components/Autocomplete";
-import AlimentTable from "../../components/AlimentTable";
 import MenuModal from "../../components/MenuModal";
+import MenuCard from "../../components/MenuCard";
+import { ArrowBack } from "@mui/icons-material";
 
 export default function WeekDay() {
-  const { id } = useParams();
+  const { weekday } = useParams();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   //breadcrumbs
   const breadcrumbs = [
+    <ArrowBack onClick={() => navigate(`/`)} className="cursor-pointer" />,
     <Link to={"/"}>Cronograma</Link>,
     <Link className="active" to="#">
-      {id}
+      {weekday}
     </Link>,
   ];
 
@@ -50,23 +46,20 @@ export default function WeekDay() {
 
   return (
     <MainLayout>
-      <Stack spacing={2}>
+      <Stack spacing={2} className="mb-3">
         <Breadcrumbs separator="›" aria-label="breadcrumb">
           {breadcrumbs}
         </Breadcrumbs>
       </Stack>
       <Stack>
-        <ul className="my-3 text-sm text-black-500 flex gap-x-3">
-          <li>Quantidade de refeições: 6</li>
-          <li>Total de carboidratos: 600g</li>
-          <li>Total de proteinas: 600g</li>
-          <li>Total de gorduras: 600g</li>
-        </ul>
-        <h3 className="font-bold">Todas as refeições</h3>
+        <h3 className="font-bold">Todas as refeições (1)</h3>
 
         <div className="flex bg gap-x-10">
           <div>
-            <div className="main-shadow rounded-md  bg-white w-[30vw] h-[100px] flex">
+            <div
+              className="main-shadow rounded-md bg-white w-[30vw] h-[100px] flex"
+              onClick={() => navigate(`/cronograma/${weekday}/cafe-da-manha`)}
+            >
               <div className="flex items-center p-2 rounded-l-md bg-[#2FBBDA] text-white">
                 7:00
               </div>
@@ -135,58 +128,9 @@ export default function WeekDay() {
             setOpenMenuModal={setIsMenuOpen}
             modal_title="Cardápios - Café da manhã (7:00) - Quinta Feira"
           >
-            <Accordion>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel1a-content"
-                id="panel1a-header"
-              >
-                <Typography>Patê de frango</Typography>
-              </AccordionSummary>
-              <AccordionDetails sx={{ textAlign: "start" }}>
-                <AsynchronousAutoComplete />
-                <AlimentTable />
-              </AccordionDetails>
-            </Accordion>
-            <Accordion>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel1a-content"
-                id="panel1a-header"
-              >
-                <Typography>Pão com ovo</Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <AsynchronousAutoComplete />
-                <AlimentTable />
-              </AccordionDetails>
-            </Accordion>
-            <Accordion>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel1a-content"
-                id="panel1a-header"
-              >
-                <Typography>Vitamina padrão</Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <AsynchronousAutoComplete />
-                <AlimentTable />
-              </AccordionDetails>
-            </Accordion>
-            <Accordion>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel2a-content"
-                id="panel2a-header"
-              >
-                <Typography>Sanduichezin básico</Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <AsynchronousAutoComplete />
-                <AlimentTable />
-              </AccordionDetails>
-            </Accordion>
+            <MenuCard />
+            <MenuCard />
+            <MenuCard />
           </MenuModal>
         </div>
       </Stack>

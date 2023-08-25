@@ -40,7 +40,7 @@ export default function MenuModal({
         aria-labelledby="customized-dialog-title"
         open={openMenuModal}
         fullWidth={true}
-        maxWidth={"md"}
+        maxWidth={"lg"}
       >
         <DialogTitle sx={{ m: 0, p: 2 }} id="customized-dialog-title">
           {modal_title}
