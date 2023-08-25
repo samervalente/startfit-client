@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import MainLayout from "../../layouts/MainLayout";
 import "./home.css";
-import CircularWithValueLabel from "../../components/CircularProgress";
 
 const dias = [
   "Domingo",

@@ -4,14 +4,11 @@ import Breadcrumbs from "@mui/material/Breadcrumbs";
 import { Link } from "react-router-dom";
 import Stack from "@mui/material/Stack";
 
-import EditIcon from "@mui/icons-material/Edit";
-import DeleteIcon from "@mui/icons-material/Delete";
-import { useState } from "react";
 import MenuCard from "../../components/MenuCard";
 import { ArrowBack } from "@mui/icons-material";
 
 export default function Meal() {
-  const { weekday, meal } = useParams();
+  const { weekday } = useParams();
   const navigate = useNavigate();
 
   //breadcrumbs
